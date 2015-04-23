@@ -1,4 +1,4 @@
-from sklearn import svm
+from sklearn import svm, metrics
 from datasetpreparation import * 
   
 trainSet = imagefeatures_and_labels('train')
@@ -13,7 +13,7 @@ poly_svc = svm.SVC(kernel='poly', degree=3, C=C).fit(subset_image_features, subs
 lin_svc = svm.LinearSVC(C=C).fit(subset_image_features, subset_labels)
 
 testSet = imagefeatures_and_labels('test')
-image_features_testSet = testSet1][:5]
+image_features_testSet = testSet[1][:5]
 labels_testSet = testSet[2][:5]
 
 results = zeros((4, labels_testSet.shape[0]), dtype = uint8)
@@ -21,4 +21,6 @@ for i, clf in enumerate((svc, lin_svc, rbf_svc, poly_svc)):
     results[i] = clf.predict(image_features_testSet)
     
     #todo: scores
+    print metrics.classification_report(labels_testSet, results[i])
+    
 
