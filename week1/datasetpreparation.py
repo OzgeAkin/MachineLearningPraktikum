@@ -36,5 +36,5 @@ def imagefeatures_and_labels (datatype):
             labels[i] =  unpack('>B', input_labels.read(1))[0]
     input_data.close()
     input_labels.close()
-    return (image_features, ravel(labels))
+    return (images, image_features, ravel(labels))
     
