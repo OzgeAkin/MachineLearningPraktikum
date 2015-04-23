@@ -15,14 +15,14 @@ def imagefeatures_and_labels (datatype):
 
     s1, s2, s3, s4 = input_data.read(4), input_data.read(4), input_data.read(4), input_data.read(4)
     magicnum = unpack('>I',s1)[0] #2051
-    totalimage = unpack('>I',s2)[0] #60000
+    totalimage = unpack('>I',s2)[0] #60000 for train, #10000 for test set
     rows = unpack('>I',s3)[0] #28
     cols = unpack('>I',s4)[0] #28
     
     s1, s2 = input_labels.read(4), input_labels.read(4)
     totallabel = unpack('>I',s2)[0]
     
-    #put the data into numpy array
+    #put the data into a numpy array
     images = zeros((totalimage, rows, cols), dtype = uint8)
     image_features = zeros((totalimage, rows*cols), dtype = uint8)
     labels = zeros((totallabel, 1), dtype = uint8)
