@@ -18,7 +18,7 @@ m_1 = [0.85; 0]; m_2 = [-0.55; 0];
 x_test1 = bsxfun(@plus, chol(S_1)'*gpml_randn(0.2, 2, n_1), m_1);        
 x_test2 = bsxfun(@plus, chol(S_2)'*gpml_randn(0.3, 2, n_2), m_2);
 
-x_test = [x_test1 x_test2]'; y_test = [-ones(1,n_1) ones(1,n_2)]';
+x_test = [x_test1 x_test2]'; y = [-ones(1,n1) ones(1,n2)]';
 plot(x_test1(1,:), x_test1(2,:), 'b*', 'MarkerSize', 12); hold on
 plot(x_test2(1,:), x_test2(2,:), 'r*', 'MarkerSize', 12);
 
@@ -58,7 +58,7 @@ likfunc = @likErf;
 
 hyp = minimize(hyp, @gp, -40, @infEP, meanfunc, covfunc, likfunc, x, y);
 %[a b c d lp] = gp(hyp, @infEP, meanfunc, covfunc, likfunc, x, y, t, ones(n,1));
-[a b c d lp] = gp(hyp, @infEP, meanfunc, covfunc, likfunc, x, y, x_test, y_test);
+[a b c d lp] = gp(hyp, @infEP, meanfunc, covfunc, likfunc, x, y, x_test, );
 figure(7)
 set(gca, 'FontSize', 24)
 plot(x1(1,:), x1(2,:), 'b+', 'MarkerSize', 12); hold on
