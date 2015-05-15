@@ -14,10 +14,10 @@ y_r=x2(2,:);
 [in, on] = inpolygon(x_r, y_r, c(1,:), c(2,:));
 plot(x_r(in),y_r(in),'ro') % red points inside
 correct_r = cumsum(in) + cumsum(on);
-incorrect_r = n2 - correct_r
+incorrect_r = n2 - correct_r;
 
-correct = correct_r(end) + correct_b(end)
-incorrect = incorrect_b(end) + incorrect_r(end)
+correct = correct_r(end) + correct_b(end);
+incorrect = incorrect_b(end) + incorrect_r(end);
 end
 if nargin == 3
 x1 = x1';
@@ -28,7 +28,7 @@ c = x2;
 %test labeled as 1
 correct = cumsum(in) + cumsum(on);
 correct = correct(end);
-incorrect = n1 - correct
+incorrect = n1 - correct;
 end
 end
 

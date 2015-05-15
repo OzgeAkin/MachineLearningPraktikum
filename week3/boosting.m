@@ -13,10 +13,10 @@ totalBoost = fitensemble(Xtrain, Ytrain,'TotalBoost',1000,'Tree');
 [labels,score] = predict(adaBoost,test_images'); %calculate entropy with score, for loop ?
 %accuracy
 correct_labels = labels == test_labels;
-accuracy = sum(correct_labels)/length(test_labels);
+accuracy = sum(correct_labels)/length(test_labels)
 %entropy
 score_ = score(:,1) .* log2(score(:,1));
-entropy = sum(score_);
+entropy = -sum(score_)
 figure(1)
 plot(loss(adaBoost,test_images',test_labels,'Mode','Cumulative'));
 xlabel('Number of trees');

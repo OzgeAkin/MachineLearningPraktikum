@@ -11,11 +11,36 @@ adaBoost = fitensemble(Xtrain, Ytrain,'AdaBoostM2',1000,'Tree');
 lpBoost = fitensemble(Xtrain, Ytrain,'LPBoost',1000,'Tree');
 totalBoost = fitensemble(Xtrain, Ytrain,'TotalBoost',1000,'Tree');
 [labels,score] = predict(adaBoost,test_images'); %calculate entropy with score, for loop ?
-score_ = score .* log2(score[:,1]);
-score_ = cumsum(score_(:));
-entropy = score_(end);
+%accuracy
+correct_labels = labels == test_labels;
+accuracy = sum(correct_labels)/length(test_labels);
+disp(['accuracy: ' num2str(accuracy)]);
+%entropy
+score_ = score(:,1) .* log2(score(:,1));
+entropy = sum(score_);
+disp(['entropy: ' num2str(entropy)]);
+
+[labels,score] = predict(adaBoost,test_images'); %calculate entropy with score, for loop ?
+%accuracy
+correct_labels = labels == test_labels;
+accuracy = sum(correct_labels)/length(test_labels);
+disp(['accuracy: ' num2str(accuracy)]);
+%entropy
+score_ = score(:,1) .* log2(score(:,1));
+entropy = sum(score_);
+disp(['entropy: ' num2str(entropy)]);
+
+[labels,score] = predict(lpBoost,test_images'); %calculate entropy with score, for loop ?
+%accuracy
+correct_labels = labels == test_labels;
+accuracy = sum(correct_labels)/length(test_labels);
+disp(['accuracy: ' num2str(accuracy)]);
+%entropy
+score_ = score(:,1) .* log2(score(:,1));
+entropy = sum(score_);
+disp(['entropy: ' num2str(entropy)]);
 figure(1)
-plot(loss(adaBoost,test_images',test_labels,'Mode','Cumulative'));
+plot(loss(totalBoost,test_images',test_labels,'Mode','Cumulative'));
 xlabel('Number of trees');
 ylabel('Test classification error');
 figure(2)

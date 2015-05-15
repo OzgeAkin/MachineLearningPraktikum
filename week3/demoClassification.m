@@ -1,4 +1,4 @@
-kjdisp('See http://www.gaussianprocess.org/gpml/code/matlab/doc/ for details.')
+disp('See http://www.gaussianprocess.org/gpml/code/matlab/doc/ for details.')
 disp('Hit any key to continue...'); pause
 
 disp(' '); disp('clear all, close all')
