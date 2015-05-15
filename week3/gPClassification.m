@@ -70,7 +70,7 @@ plot(x2(1,:), x2(2,:), 'r+', 'MarkerSize', 12)
 %contour(t1, t2, reshape(exp(lp), size(t1)), 0.1:0.1:0.9)
 %[c h] = contour(t1, t2, reshape(exp(lp), size(t1)), [0.5 0.5]);
 [c h] = contour(x_test1, x_test2, reshape(exp(lp), size(x_test1)), [0.5 0.5]);
- [correct_2, incorrect_2] = classification_validation(x_test1,n_1,x_test2,n_2,c);
+[correct_2, incorrect_2] = classification_validation(x_test1,n_1,x_test2,n_2,c);
 %[correct_2, incorrect_2] = classification_validation(t,n,c);
 accuracy_2 = correct_2 / (correct_2 + incorrect_2)
 set(h, 'LineWidth', 2)
@@ -93,7 +93,7 @@ plot(x2(1,:), x2(2,:), 'r+', 'MarkerSize', 12)
 %contour(t1, t2, reshape(exp(lp), size(t1)), 0.1:0.1:0.9)
 %[c h] = contour(t1, t2, reshape(exp(lp), size(t1)), [0.5 0.5]);
 [c h] = contour(x_test1, x_test2, reshape(exp(lp), size(x_test1)), [0.5 0.5]);
- [correct_3, incorrect_3] = classification_validation(x_test1,n_1,x_test2,n_2,c);
+[correct_3, incorrect_3] = classification_validation(x_test1,n_1,x_test2,n_2,c);
 %[correct_3, incorrect_3] = classification_validation(t,n,c);
 accuracy_3 = correct_3 / (correct_3 + incorrect_3)
 set(h, 'LineWidth', 2)
